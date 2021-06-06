@@ -2,8 +2,9 @@
 
 require_once 'core/database.php';
 
-//This file hosts functions concerning posts
-//devolve um array com todos os meus posts
+//Ficheiro com todas as funcionalidades dos posts(tweets)
+
+//Todos os meus posts
 function getAllAnimePosts($filter = null) {  
     $pdoConnection = getConnection();
     $sqlQuery = "SELECT * FROM posts";
@@ -36,7 +37,6 @@ function searchPost($filter) {
     }
 }
 
-//útil para fazer o update
 function getAnimePostById($idPost) {
     $pdoConnection = getConnection();
     $command = $pdoConnection->prepare("SELECT * FROM posts WHERE id_post = :id_post" );
@@ -45,7 +45,7 @@ function getAnimePostById($idPost) {
     return $post;
 }
 
-//criar post
+//Criar post novo
 function createAnimePost($targetFile, $title, $textContent, $postDate, $image_id) {
     $pdoConnection = getConnection();
     $id_user = $_SESSION['user']['id'];
@@ -68,7 +68,7 @@ function createAnimePost($targetFile, $title, $textContent, $postDate, $image_id
     }
 }
 
-//check!
+//Remover post
 function removeAnimePost($idPost, $idUser) {
     $pdoConnection = getConnection();
     $anime = getAnimePostById($idPost);    
@@ -93,6 +93,7 @@ function removeAnimePost($idPost, $idUser) {
     }    
 }
 
+//Todos os posts de todos os users
 function getAllUsersPosts() {
     $pdoConnection = getConnection();
     $datePosted = date('Y-m-d_H-i-s');

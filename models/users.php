@@ -55,7 +55,6 @@ function signupAccount($username, $password, $email) {
         $command = $pdoConnection->prepare($sqlQuery);
         $result = $command->execute(array(':username'=>$username, ':password'=>$password, 
                                        ':email'=>$email, ':pictureUrl'=>$defaultAvatar));
-        //die($result);
         return $result;
     } catch (PDOException $e) {
         echo "PDOException: " . $e->getMessage();
@@ -71,7 +70,6 @@ function logoutAccount() {
 
 //SESSION START
 function verifyAccess() {
-    //session_start();
 
     if (!isset($_SESSION['user'])) {
         header("HTTP/1.1 403 Forbidden");

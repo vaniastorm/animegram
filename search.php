@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
     if ($searchData != "") { 
         $_SESSION['searchPost'] = $searchData;
-        //die('oi');
         header("Location: showposts.php");
     } else {
         $message = "Não foi possível seguir o seu amigo";

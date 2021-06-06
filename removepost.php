@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result) {
         header("Location: showposts.php");
-        //die($result);
     } else {
         $message = "Não foi possível apagar o seu post";
     }

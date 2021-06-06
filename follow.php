@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $_SESSION['followFriends'] = "follow";
     $result = follow($usernameFriend, $idFriend, $idUser);
-    //die($result);
+    
 
     if ($result) {
-        //$_SESSION['friend_usernames'] = [$usernameFriend];
+        
         $followedUserNames = array();
 
         if (isset($_SESSION['friend_usernames'])) {    //verificar se já existem users a ser seguidos na sessão        
