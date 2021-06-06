@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>animegram | welcome</title>
+</head> 
+
+<body class="bg-gradient">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">    
+        <a href="homepage.php"><img src="views/images/websiteImg/anime_5.png" alt=""></a>
+        <div>
+            <a href="homepage.php">posts</a>    
+            <a href="allfriends.php">friends</a>        
+            <a href="logout.php">logout</a>    
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="home2"> 
+            <?= isset($message) ? $message : '' ?>    
+
+            <!-- WELCOME USER --> 
+            <h4>select new friends to follow!</h4>
+            <div class="friend-link">
+                <a href="allfriends.php">all users</a>
+                <a href="myfriends.php">following</a>
+            </div> 
+
+            <hr>
+
+            <!-- FRIENDS --> 
+            <div>     
+                <div class="timeline2">
+                    <?php if (count($users) > 0) : ?>
+                        <?php foreach ($users as $user) : ?>   
+                            
+                            <div class="friend-info2">
+                                <span>
+                                    
+                                <ul style="list-style: none">
+                                    <li style="margin-bottom: 5px; border-bottom: 1px solid">
+                                        <span style="margin: 0 0 40px 10px; line-height:100px;">
+                                            <img src="<?= $user['pictureUrl'] ?>" alt="" width="100px" height="100px" style="float: left">
+                                            <?= $user['username'] ?>
+                                            <span for=""></span>
+                                        </span>
+                                    
+                                        <div style="float: right; line-height: 100px">
+                                            <form method="post" action="follow.php" style="display: inline">
+                                                <span style="line-height:50px"> 
+                                                    <input type="hidden" value="<?= $user['id'] ?>" name="id-followed">
+                                                    <input type="hidden" value="<?= $user['username'] ?>" name="friendName">
+                                                    
+                                                    <!-- Botão para desabilitar o botão -->
+                                                    <button type="submit" name="submit" id="btn-follow"
+                                                    <?php 
+                                                        
+                                                        if (isset($_SESSION['friend_usernames'])) {  
+                                                            if(in_array($user['username'], $_SESSION['friend_usernames'])) {
+                                                                echo "disabled";
+                                                            } 
+                                                        } 
+                                                    ?> 
+                                                    
+                                                    >follow</button>
+
+                                                </span>                                  
+                                            </form>  
+                                            
+                                        </div>                                                        
+                                    </li>
+                                </ul>
+                                    
+                                </span> 
+                            </div>                           
+                            
+                        <?php endforeach; ?> 
+                    <?php else : ?>
+                        <div>no posts</div> 
+                    <?php endif; ?>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SEARCH FORM -->
+        <!-- <div class="home">
+            <h4>search for friends</h4>
+            <form class="search-form" action="showposts.php"> sempre que submeter este form, quero redireccionar-me para a listagem 
+                <input type="search" placeholder="search" name="search" name="search"> name search vai pesquisar 
+                <button type="submit">search for friends</button>
+            </form>        
+        </div> -->
+
+    </div>
+      
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>animegram | welcome</title>
+</head>
+
+<body class="bg-gradient">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">    
+        <a href="homepage.php"><img src="views/images/websiteImg/anime_5.png" alt=""></a>
+        <div>
+            <a href="homepage.php">posts</a>    
+            <a href="allfriends.php">friends</a>        
+            <a href="logout.php">logout</a>    
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="home2">            
+
+            <?= isset($message) ? $message : '' ?>
+
+            <!-- UPLOAD PROFILE PHOTO -->
+            <div class="upload-form">
+                <?php 
+                    $imgWidth= "width = 100px";
+                    $height= "height = 100px"; 
+                    print("<img src=". urlencode( $_SESSION['user']['avatar_url']) . " ". $imgWidth . " ". $height .">") 
+                ?> 
+
+                <form method="post" enctype="multipart/form-data" action="addprofilephoto.php">
+                    <div>
+                        <input type="file" name="photo" required accept=".png,.jpg,.jpeg" value="<?= isset($photoPost) ? $photoPost['photo'] : '' ?>">
+                    </div>
+                    <button type="submit">upload</button>
+                </form>
+            </div>
+
+            <!-- WELCOME USER -->    
+            <div>
+                <h4>olá <?php print_r($_SESSION['user']['name']) ; ?></h4>
+            </div> 
+            
+            <hr>
+
+            <!-- SUBMIT -->
+            <div class="anime-posts">                                           
+                <a href="allposts.php">all posts</a>
+                <a href="showposts.php">my posts</a>
+            </div>
+
+            <!-- POST GALLERY -->
+            <div>
+                <?php if (isset($message)): ?>
+                    <div class="alert alert-info"><?= $message ?></div>
+                <?php endif; ?>  
+
+                <div class="timeline">
+                    <?php if (count($animes) > 0) : ?>
+                        <?php foreach ($animes as $anime) : ?>
+                            <div class="timeline-img">
+                                <div class="anime-img"><img src="<?= $anime['imageUrl'] ?>" alt=""></div>
+                                <div>
+                                    <div class="timeline-avatar">
+                                        <div class="tl-avatar"><img src="views/images/websiteImg/avatar.png" alt=""></div>
+                                        <div class="tl-username"><p><?= $anime['username'] ?></p></div>
+                                    </div>
+                                    <div class="tl-comment"><p><?= $anime['textContent'] ?></p></div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-text">                                        
+                                <div class="anime-title"><p>title: <?= $anime['title'] ?></p></div>
+
+                                <div class="tl-others">
+                                    <div class="like"><button><i class="far fa-thumbs-up"></i></button></div>
+                                    <div class="dislike"><button><i class="far fa-thumbs-down"></i></button></div>
+                                    <div class="postdate"><?= $anime['postDate'] ?></div>
+                                </div>                                 
+                            </div> 
+
+                            <div style="float: right; line-height: 100px">
+                                <form method="post" action="removepost.php" style="display: inline">
+                                    <span style="line-height:50px"> 
+                                        <input type="hidden" value="<?= $anime['id_post'] ?>" name="id-post">
+                                        <button type="submit">remove post</button>
+                                    </span>                                  
+                                </form>  
+                            </div>
+
+                            <hr>
+                            
+                        <?php endforeach; ?> 
+                    <?php else : ?>
+                        <div>no posts yet!</div> 
+                    <?php endif; ?>      
+                </div>
+            </div>
+            
+        </div>    
+
+        <!-- POST FORM -->
+        <div class="home">
+
+            <!-- SEARCH FORM -->
+            <!-- <h4>search for posts</h4>
+            <form class="search-form" action="showposts.php"> 
+                <input type="search" placeholder="search" name="search"> 
+                <button type="submit">search</button>
+            </form> -->
+
+            <hr>
+
+            <div class="form-content">
+                <h4>create your post!</h4>
+                <div>          
+                    <img src="../views/images/websiteImg/anime_4.jpg" alt="">
+                </div><br>
+                <form method="post" enctype="multipart/form-data" action="addpost.php">
+                    <div>
+                        <input type="file" name="image" placeholder="your image" accept=".png,.jpg,.jpeg" value="<?= isset($animePost) ? $animePost['image'] : '' ?>">
+                    </div>
+                    <div>
+                        <input type="text" name="title" placeholder="image title" value="<?= isset($animePost) ? $animePost['title'] : '' ?>">
+                        <br>
+                        <textarea name="textContent"  placeholder="your comment" cols="" rows="10" value="<?= isset($animePost) ? $animePost['textContent'] : '' ?>"></textarea>
+                        <br>
+                        <button type="submit">post</button>                    
+                    </div>              
+                </form>
+            </div>
+        </div>
+
+    
+        
+    </div>
+
+</div>
+      
+</body>
+</html>

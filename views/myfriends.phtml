@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>animegram | welcome</title>
+</head> 
+
+<body class="bg-gradient">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">    
+        <a href="homepage.php"><img src="views/images/websiteImg/anime_5.png" alt=""></a>
+        <div>
+            <a href="homepage.php">posts</a>    
+            <a href="allfriends.php">friends</a>        
+            <a href="logout.php">logout</a>    
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="home2"> 
+            <?= isset($message) ? $message : '' ?>    
+
+            <!-- WELCOME USER -->    
+            <div>                
+                <h4>see what your friends are up to!</h4>
+                <div class="friend-link">
+                    <a href="allfriends.php">all users</a>
+                    <a href="myfriends.php">my friends</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- FRIENDS --> 
+            <div>     
+                <div class="timeline2">
+                    <?php if (count($users) > 0) : ?>
+                        <?php foreach ($users as $friend) : ?>   
+                            
+                            <div class="friend-info2">
+                                <span>
+                                    
+                                <ul style="list-style: none">
+                                    <li style="margin-bottom: 5px; border-bottom: 1px solid">
+                                        <span style="margin: 0 0 40px 10px; line-height:100px;">
+                                            <img src="<?= $friend['pictureUrl'] ?>" alt="" width="100px" height="100px" style="float: left">
+                                            <?= $friend['username_friend'] ?>
+                                            <span for=""></span>
+                                        </span>
+                                    
+                                        <div style="float: right; line-height: 100px">
+                                            <form method="post" action="unfollow.php" style="display: inline">
+                                                <span style="line-height:50px"> 
+                                                    <input type="hidden" value="<?= $friend['id_friend'] ?>" name="id-followed">
+                                                    <input type="hidden" value="<?= $friend['usernam_friend'] ?>" name="name-followed">
+                                                    <button type="submit">unfollow</button>          
+                                                </span>                                  
+                                            </form>
+                                        </div>                                                        
+                                    </li>
+                                </ul>
+                                    
+                                </span> 
+                            </div>                           
+                            
+                        <?php endforeach; ?> 
+                    <?php else : ?>
+                        <div>no friends yet!</div> 
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEARCH FORM -->
+        <div class="home">
+            <form class="search-form" action="showposts.php"> 
+                <input type="search" placeholder="search" name="search" name="search"> 
+                <button type="submit">search for friends</button>
+            </form>        
+        </div>
+
+    </div>
+      
+</body>
+</html>

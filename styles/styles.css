@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BACKGROUND-GRADIENT */
+.bg-gradient {
+    background: linear-gradient(45deg, #76f0ea, #a3f19c, #fffeb8, #ffd2d0, #F4A8E2, #AEB4ED);
+    background-size: 300% 300%;
+    animation: gradient 10s ease-in-out infinite;
+}
+
+@keyframes gradient {
+    0% {background-position: 0 50%;
+    }
+    50% {background-position: 100% 50%;
+    }
+    100% {background-position: 0 50%;
+    }
+}
+
+/* NAVBAR */
+.navbar {
+    height: 20px;
+    margin: 20px;
+    text-align: center;
+}
+.navbar a {
+    width: 150px;
+    margin: 0 30px;
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+}
+.navbar a img {
+    height: 150px;
+    margin: 50px 0 20px 0;
+}
+
+/* HOME */
+.main {
+    display: flex;
+    padding: 30px;
+    gap: 20px;
+    margin-top: 200px;
+}
+.home {
+    font-family: 'Ubuntu', sans-serif;
+    margin: auto;    
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.76);
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.home img {
+    width: 100%;
+    border-radius: 5px;
+}
+.home-text {
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+    color: rgb(52, 11, 119);
+}
+.home-text a {
+    border-radius: 25px;
+    background-color: rgb(146, 47, 146);
+    color: white;
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+}
+.home-text h6{
+    margin: 10px;
+}
+.home input{
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+    height: 35px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+.home label{
+    color: rgb(52, 11, 119);
+}
+.home h4{
+    color: rgb(52, 11, 119);
+    margin: 10px;
+}
+.home button {
+    border-radius: 25px;
+    background-color: rgb(146, 47, 146);
+    color: white;
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+    width: 50%;
+    margin: 10px;
+    cursor: pointer;
+}
+.home2 {
+    font-family: 'Ubuntu', sans-serif;
+    margin: auto;    
+    width: 70%;
+    background-color: rgba(255, 255, 255, 0.76);
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    float: left;
+}
+
+/* WELCOME PAGE */
+.header {
+    display: block;
+}
+.profile-photo {
+    height: 150px;
+    width: 150px; 
+    background-color: rgb(192, 192, 192); 
+    border-radius: 5px;  
+}
+.span {
+    height: 1px;
+    background-color: rgb(197, 197, 197);
+    margin: 0 30px;
+}
+hr {
+    width: 100%;
+    height: 3px;
+    margin: auto; 
+    background-color: teal;
+    margin: 20px 0 20px 0;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.gallery img {
+    height: 270px;
+    width: 200px;
+}
+.form-content {
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+}
+.form-content input, textarea{
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+    height: 35px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin-top: 20px;
+}
+.tl-posts {
+    margin-top: 100px;
+    display: flex;
+}
+.tl-posts-2 {
+    margin: 30px;
+    width: 70%;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+.tl-form {
+    margin: 20px;
+    width: 30%;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+table img {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    margin: 10px;
+}
+table p {
+    margin: 10px;
+    color: white;
+    text-align: left;
+}
+
+/* TIMELINE */
+.timeline {
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+.timeline-img{
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+.anime-img img{
+    border-radius: 5px;
+    width: 200px;
+}
+.tl-username{
+    text-align: left;
+    height: 40px;
+    margin: 10px 0;
+}
+.anime-title {
+    height: 40px;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 200px;
+    align-items: center;
+}
+.timeline-text {
+    display: flex;
+    gap: 20px;
+}
+.tl-others {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    margin: 10px 0;
+}
+.like, .dislike, .postdate {
+    height: 40px;
+    width: auto;
+    border-radius: 5px;
+}
+.tl-comment {
+    background-color: rgb(245, 245, 245);
+    height: 150px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: left;
+    padding: 10px;
+}
+.tl-avatar {
+    margin-right: 10px;
+}
+.tl-avatar img {
+    height: 30px;
+    width: 30px;
+}
+.timeline-avatar {
+    display: flex;
+}
+.tl-others i {
+    font-size: 20px;
+    color: rgb(127, 32, 136);
+}
+.anime-posts button {
+    margin: 10px 30px 0 30px;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+/* FOLLOWING */
+.friend img{
+    border-radius: 5px;
+    display: block;
+}
+.friend-info {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    margin: 10px 0;
+    padding: 10px;
+}
+.friend-info2 {
+    margin-left: 20px;
+    text-align: left;
+    display: block;
+}
+.friend-link a {
+    margin: 50px 30px 0 30px;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 25px;
+}
+.post-buttons a {
+    text-decoration: none;
+    color: indigo;
+    margin: 0 20px 0 20px;
+}
+.timeline2 {
+    display: block;
+}
+.upload-form {
+    font-family: 'Ubuntu', sans-serif;
+    margin: auto;    
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.76);
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    text-align: center; 
+}
+.upload-form input {
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+    height: 35px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+.upload-form button {
+    border-radius: 25px;
+    background-color: rgb(146, 47, 146);
+    color: white;
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+    width: 50%;
+    margin: 10px;
+    cursor: pointer;
+}
+h4 {
+    margin: 20px 0 20px 0;
+    color: indigo;
+}
+.remove-post a {
+    text-decoration: none;
+}
+.remove-post li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
