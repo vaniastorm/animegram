@@ -2,6 +2,7 @@
 
 require_once 'core/database.php';
 
+//This file hosts functions concerning posts
 //devolve um array com todos os meus posts
 function getAllAnimePosts($filter = null) {  
     $pdoConnection = getConnection();
